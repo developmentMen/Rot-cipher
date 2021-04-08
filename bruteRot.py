@@ -56,12 +56,18 @@ def encrypt(normalStr, key):
                     encryptedText += ch
         return(encryptedText)
 
-def main(s, n):
+def guardar(fileName, encryptedText):
+	with open(fileName+'.txt', "a") as f:
+		f.write(encryptedText)
+
+def main(s, n, f):
+	outputFile = ""
 	for num in range(1,n+1):
 		k = generateKey(num)
 		print('========= Rotation {} =========='.format(num))
+		outputFile += 'ROT -> {}\n\t'.format(num)+encrypt(s, k)+'\n\n'
 		print(encrypt(s, k))
-
+	if str(f) != 'no save': guardar(f, outputFile)
 
 
 if __name__ == '__main__':
@@ -70,12 +76,13 @@ if __name__ == '__main__':
 	parser.add_argument('-v', '--verbose', action='store_true', help="more details")
 	parser.add_argument('-s', '--string', type=str, metavar='', help='string to encode/decode')
 	parser.add_argument('-n', '--number', type=int, default=13, metavar='', help='numbers of rotations')
+	parser.add_argument('-o', '--output', type=str, metavar='', help="save the output as file", default="no save")
 
 	args = parser.parse_args()
 
 	if not args.noBanner: print(banner())
 	try:
-		main(args.string, args.number)
+		main(args.string, args.number, args.output)
 	except Exception as a:
 		print("============ ERROR ============")
 		if args.verbose:
