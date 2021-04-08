@@ -5,10 +5,12 @@ brute force to caesar cipher/Rot cipher
 	python3 bruteRot.py -s "Esto es una prueba/This is a text"
 ![bruteRot](img/comoUsar.png)
 
-## to-Do
+## To-Do
 - GUI
 	- Another alphabets
 	- web 
+	- detect lenguajes
+	- maybe a translate options
 
 ### help
 ![help bruteRot](img/help.png)
