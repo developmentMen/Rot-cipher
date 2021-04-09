@@ -2,7 +2,7 @@
 brute force to caesar cipher/Rot cipher
 
 ## Como se usa
-	python3 bruteRot.py -s "Esto es una prueba/This is a text"
+	python3 bruteRot.py -s "Esto es una prueba/This is a test"
 ![bruteRot](img/comoUsar.png)
 
 ## To-Do
