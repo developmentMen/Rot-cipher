@@ -6,8 +6,8 @@ caesar cipher/Rot cipher
 ![bruteRot](img/comoUsar.png)
 
 ## To-Do
-	- GUI Scrollbar
 - Another alphabets
+	- GUI Scrollbar
 	- web 
 	- detect lenguajes
 	- maybe a translate lenguajes options
