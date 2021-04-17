@@ -3,7 +3,7 @@
 # =============================
 # Author	--> DevMen
 # Date created	--> 07/04/2021
-# Last modified	--> 08/04/2021
+# Last modified	--> 17/04/2021
 # Version	--> Python 3.8.5
 # =============================
 '''
@@ -26,12 +26,12 @@ ALPHABET = [
 
 def banner():
 	return """
-    __               __       ____        __ 
-   / /_  _______  __/ /____  / __ \____  / /_
-  / __ \/ ___/ / / / __/ _ \/ /_/ / __ \/ __/
- / /_/ / /  / /_/ / /_/  __/ _, _/ /_/ / /_  
-/_.___/_/   \__,_/\__/\___/_/ |_|\____/\__/  
-=======================> by ☆ developmentMen☆
+   ___       __        _      __          
+  / _ \___  / /_  ____(_)__  / /  ___ ____
+ / , _/ _ \/ __/ / __/ / _ \/ _ \/ -_) __/
+/_/|_|\___/\__/  \__/_/ .__/_//_/\__/_/   
+                     /_/                  
+_________________________by ☆ developmentMen☆
 """
 
 def generateKey(rotNum):
@@ -57,43 +57,32 @@ def encrypt(normalStr, key):
         return(encryptedText)
 
 def guardar(fileName, encryptedText):
-	with open(fileName+'.txt', "a") as f:
+	with open(fileName, "a") as f:
 		f.write(encryptedText)
 
-def main(s, n, f, filter):
+def main(s, n, f):
 	outputFile = ""
-	if filter :
-		outputFile += encrypt(s, generateKey(n))+'\n\n'
-		print('========= Rotation {} =========='.format(n))
-		print(encrypt(s, generateKey(n)))
-		if f != 'no save': guardar(f, outputFile)
-	else :
-		for num in range(1,n+1):
-			k = generateKey(num)
-			print('========= Rotation {} =========='.format(num))
-			outputFile += 'ROT -> {}\n\t'.format(num)+encrypt(s, k)+'\n\n'
-			print(encrypt(s, k))
-		if f != 'no save': guardar(f, outputFile)
+	outputFile += encrypt(s, generateKey(n))+'\n\n'
+	print('========= Rotation {} =========='.format(n))
+	print('\t'+encrypt(s, generateKey(n)))
+	if f != 'no save':
+		if f[-4:] != '.txt':f += '.txt'
+		guardar(f, outputFile)
+		print("saved as {}".format(f))
 
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser(description="bruteforce for ROT cipher")
+	parser = argparse.ArgumentParser(description="a simple Rot cipher")
 	parser.add_argument('-nb', '--noBanner', action='store_true', help='no print banner')
-	parser.add_argument('-v', '--verbose', action='store_true', help="more details")
 	parser.add_argument('-s', '--string', type=str, metavar='', help='string to encode/decode')
 	parser.add_argument('-n', '--number', type=int, default=13, metavar='', help='numbers of rotations')
-	parser.add_argument('-o', '--output', type=str, metavar='', help="save the output as file", default="no save")
-	parser.add_argument('-f', '--filter', action='store_true', help='only show -n ')
+	parser.add_argument('-o', '--output', type=str, metavar='', help="save the output as .txt file", default="no save")
 
 	args = parser.parse_args()
 
 	if not args.noBanner: print(banner())
 	try:
-		main(args.string, args.number, args.output, args.filter)
+		main(args.string, args.number, args.output)
 	except Exception as a:
 		print("============ ERROR ============")
-		if args.verbose:
-			print("\n======== {} ======== \n\n\tpls select the string tho encrypt whit -s or --string\n".format(a))
-		else:
-			print("\n\tpls select the string tho encrypt whit -s or --string\n")
-
+		print("\n======== {} ======== \n\n\tpls select the string tho encrypt whit -s or --string\n".format(a))
