@@ -5,12 +5,12 @@ caesar cipher/Rot cipher
 	python3 rotCipher.py -s "developmentMen" -n 3
 ![bruteRot](img/comoUsar.png)
 
+### help
+![help bruteRot](img/help.png)
+
 ## To-Do
 - Another alphabets
 	- GUI Scrollbar
 	- web 
 	- detect lenguajes
 	- maybe a translate lenguajes options
-
-### help
-![help bruteRot](img/help.png)
