@@ -3,8 +3,8 @@
 # =============================
 # Author	--> DevMen
 # Date created	--> 07/04/2021
-# Last modified	--> 17/04/2021
-# Version	--> Python 3.8.5
+# Last modified	--> 20/10/2023
+# Version	--> Python 3.11.2
 # =============================
 '''
  este programa fue echo para aplicar

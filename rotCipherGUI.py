@@ -3,8 +3,8 @@
 # =============================
 # Author	--> DevMen
 # Date created	--> 09/04/2021
-# Last modified	--> 17/04/2021
-# Version	--> Python 3.8.5
+# Last modified	--> 20/10/2023
+# Version	--> Python 3.11.2
 # =============================
 # col	_|__0___|___1___|___2___|
 # row	0|<-_string to encrypt->|
