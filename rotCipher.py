@@ -7,7 +7,7 @@
 # Version	--> Python 3.11.2
 # =============================
 '''
- este programa fue echo para aplicar
+ Este programa fue echo para aplicar
  encriptacion ROT/caesar cipher
 '''
 # =============================
